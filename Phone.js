@@ -1,6 +1,5 @@
 var fs = require('fs');
 var adb = require('adbkit');
-var spawn = require('child_process').spawn;
 var client = adb.createClient();
 
 const EventEmitter = require("events");
