@@ -1,5 +1,6 @@
 var fs = require('fs');
 var adb = require('adbkit');
+var spawn = require('child_process').spawn;
 var client = adb.createClient();
 
 const EventEmitter = require("events");
@@ -13,10 +14,17 @@ class Phone extends EventEmitter {
         this.status = status;
     }
 
-    installAPK() {
+    installApk() {
         var files = fs.readdirSync('/root/Workspace/PhoneManager/app/');
         var apk = '/root/DevControl/app/' + files[0];
         client.install(this.id, apk);
+    }
+
+    openLogCat(callback) {
+        client.openLogcat(this.id)
+            .then(callback).catch(function (err) {
+                console.log(err);
+            });
     }
 
     return() {
