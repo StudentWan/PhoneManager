@@ -66,6 +66,10 @@ class PhoneManager {
         }
         return null;
     }
+
+    getPhoneList() {
+        return client.listDevices();
+    }
 }
 
 export default PhoneManager;

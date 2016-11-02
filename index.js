@@ -18,7 +18,6 @@ var timer = setInterval(function () {
             //Make sure we don't leave anything hanging 
             process.on('exit', function () {
                 proc.kill();
-                console.log(p);
             });
             }).catch(function (err) {
                 throw err;
