@@ -69,6 +69,22 @@ class PhoneManager {
 
     getPhoneList() {
         return client.listDevices();
+        // var that = this;
+        // var hangDevices = [];
+        // client.listDevices()
+        //     .then(function(devices) {
+        //         for(var i in devices){
+        //             for(var j in that._phones){
+        //                 if((devices[i].id == that._phones[j].id)&&(that._phones[j].status != 1)) {
+        //                     hangDevices.push(that._phones[j]);
+        //                     break;
+        //                 }
+        //             }
+        //         }
+        //         return hangDevices;
+        //     }).catch(function(err) {
+        //         throw err;
+        //     });
     }
 }
 

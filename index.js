@@ -9,18 +9,18 @@ var timer = setInterval(function () {
     p = m.getPhone();
     if (p != null) {
         clearInterval(timer);
-            var promise = p.openLogCat();
-            promise.then(function (logcat) {
-                logcat.on('entry', function (entry) {
+        var promise = p.openLogCat();
+        promise.then(function (logcat) {
+            logcat.on('entry', function (entry) {
                     console.log(entry.message);
                 });
 
-            //Make sure we don't leave anything hanging 
-            process.on('exit', function () {
+        //Make sure we don't leave anything hanging 
+        process.on('exit', function () {
                 proc.kill();
             });
-            }).catch(function (err) {
+        }).catch(function (err) {
                 throw err;
-            });
+        });
     }   
 }, 1000);
