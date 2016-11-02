@@ -48,7 +48,8 @@ class PhoneManager {
     remove(id) {
         for (var i in this._phones) {
             if (this._phones[i].id = id) {
-                delete this._phone[i];
+                this._phones[i].status = 2;
+                this._phones.splice(i,1);
                 break;
             }
         }
